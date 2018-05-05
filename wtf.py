@@ -74,6 +74,17 @@ def get_stats(filename):
     }
 
 
+def write_wtf(message=None, outfile=None):
+    now = datetime.now()
+    if outfile is None:
+        outfile = 'wtfs.txt'
+    with open(outfile, 'a+') as f:
+        f.write(now.isoformat())
+        if message:
+            f.write(' ' + message)
+        f.write('\r\n')
+
+
 if __name__ == "__main__":
     args = parser.parse_args()
     message = args.message
@@ -91,11 +102,4 @@ if __name__ == "__main__":
         print('Duration (minutes):', str(round(stats['duration'], 3)))
         print('WTFs/min:', str(round(stats['wtfs_per_min'], 3)))
     else:
-        if outfile is None:
-            outfile = 'wtfs.txt'
-        with open(outfile, 'a+') as f:
-            now = datetime.now()
-            f.write(now.isoformat())
-            if message:
-                f.write(' ' + message)
-            f.write('\r\n')
+        write_wtf(message, outfile)
