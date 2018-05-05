@@ -21,7 +21,7 @@ WTF is a single, dependency-free Python file. I recommend Python 3.3 and above.
 
 To record a WTF moment, just execute it:
 
-```python
+```bash
 ./wtf.py
 ```
 
@@ -29,19 +29,19 @@ By default this will write a timestamp to a file in the local directory called '
 
 Want to add some detail about the sheer idiocy that's blowing your mind right now? Just use the `--message` argument (`-m` for short). Make sure your message is in quotes (just like `git commit -m`):
 
-```python
+```bash
 ./wtf.py -m "Why the hell would someone indent with tabs in this module, when all of the other modules use spaces!? ARG1!@!fk.dfaskdnfasvnowe"
 ```
 
 You can change the location of the output file with the `--output`/`-o` option:
 
-```python
+```bash
 ./wtf.py -m "I just can't even." -o code-review-01.txt
 ```
 
 And finally, you can get summary stats with the `--read`/`-r` options. Just supply the name of the file to read:
 
-```python
+```bash
 ./wtf.py -r code-review-01.txt
 ```
 
