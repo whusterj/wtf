@@ -27,7 +27,7 @@ parser.add_argument(
 )
 parser.add_argument(
     '-r', '--read',
-    help='Read a WTF log file. Outputs WTFs per minute.'
+    help='Read a WTF log file. Outputs stats and WTFs per minute.'
 )
 
 
@@ -63,6 +63,10 @@ def get_stats(filename):
     time_diff = end - start
     total_minutes = time_diff.seconds / 60
 
+    # Prevent division by zero for timestamps that are very close.
+    if total_minutes == 0:
+        total_minutes = 1
+
     return {
         'total': len(timestamps),
         'duration': total_minutes,
@@ -84,7 +88,7 @@ if __name__ == "__main__":
             )
         stats = get_stats(readfile)
         print('Total WTFs:', stats['total'])
-        print('Duration (minutes):', stats['duration'])
+        print('Duration (minutes):', str(round(stats['duration'], 3)))
         print('WTFs/min:', str(round(stats['wtfs_per_min'], 3)))
     else:
         if outfile is None:
