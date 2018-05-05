@@ -2,7 +2,7 @@
 
 Most programmers are familiar with this iconic comic:
 
-![WTF](images/wtfm.jpg)
+![WTF](img/wtfm.jpg)
 [Source](http://www.osnews.com/story/19266/WTFs_m)
 
 And anyone who has ever done code review or even just tried to read code knows how true this is.
